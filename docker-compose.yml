@@ -1,0 +1,56 @@
+version: '3.8'
+services:
+  users:
+    build:
+      context: ./users
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/users
+      PORT: 3000
+
+  transactions:
+    build:
+      context: ./transactions
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/transactions
+      PORT: 3001
+
+  notifications:
+    build:
+      context: ./notifications
+    ports:
+      - "3002:3002"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/notifications
+      PORT: 3002
+
+  groups:
+    build:
+      context: ./groups
+    ports:
+      - "3003:3003"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/groups
+      PORT: 3003
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

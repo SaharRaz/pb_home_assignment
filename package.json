@@ -1,10 +1,10 @@
 {
-  "name": "untitled",
+  "name": "digital-wallet-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "private": true
+    "start": "docker-compose up --build",
+    "stop": "docker-compose down",
+    "logs": "docker-compose logs -f",
+    "test": "echo 'Add your test scripts here'"
+  }
 }
