@@ -1,10 +1,21 @@
 {
   "name": "digital-wallet-backend",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "start": "docker-compose up --build",
     "stop": "docker-compose down",
     "logs": "docker-compose logs -f",
-    "test": "echo 'Add your test scripts here'"
+    "test": "echo 'Add your test scripts here'",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "joi": "^17.13.3",
+    "mongoose": "^8.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }

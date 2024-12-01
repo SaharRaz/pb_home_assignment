@@ -1,5 +1,5 @@
 const express = require('express');
-const connectDB = require('./systems/dbConnection');
+const connectDB = require('../../db/dbConnection');
 const userRoutes = require('./routes/user.routes');
 const { port } = require('./config');
 
@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 // Connect to MongoDB
-connectDB();
+await connectDB();
 
 // Routes
 app.use('/users', userRoutes);
